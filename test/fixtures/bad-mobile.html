@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bad mobile</title>
+<style>
+body{font-family:system-ui;margin:0;color:#111}
+.wide{width:700px;background:#ddd;height:30px}
+.tiny{width:20px;height:20px;padding:0}
+.clip{width:120px;overflow:hidden;white-space:nowrap;border:1px solid #000}
+.crop{width:300px;height:60px;object-fit:cover;display:block}
+</style></head><body>
+<h1>Mobile problems</h1>
+<div class="wide">too wide for phones</div>
+<button class="tiny" aria-label="close">x</button>
+<div class="clip">This text is way longer than its box and just gets cut</div>
+<img class="crop" alt="tall" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='600'><rect width='300' height='600' fill='%23c33'/></svg>">
+</body></html>
