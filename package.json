@@ -1,0 +1,12 @@
+{
+  "name": "sightline",
+  "version": "0.1.0",
+  "description": "Lets your AI coding agent actually see the UI it builds: renders the page, finds visual and accessibility defects (incl. Arabic/RTL), returns annotated screenshots and a fix list.",
+  "bin": { "sightline": "bin/sightline.js" },
+  "main": "src/audit.js",
+  "scripts": { "test": "node test/run.js", "demo": "node test/demo.js" },
+  "keywords": ["ui","ux","design","accessibility","rtl","arabic","claude","agent","skill","playwright","wcag"],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": { "playwright": ">=1.40.0" }
+}
