@@ -1,0 +1,7 @@
+{
+  "name": "sightline",
+  "version": "0.1.0",
+  "description": "Gives your AI agent eyes: audits the UI it builds in a real browser and returns annotated screenshots and a fix list, with first-class Arabic/RTL checks.",
+  "skills": "./skills",
+  "license": "MIT"
+}

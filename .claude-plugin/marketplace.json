@@ -1,0 +1,7 @@
+{
+  "name": "sightline",
+  "owner": { "name": "sightline" },
+  "plugins": [
+    { "name": "sightline", "source": "./", "description": "Visual UI audit for AI coding agents (contrast, overflow, tap targets, images, RTL)." }
+  ]
+}
