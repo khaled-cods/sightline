@@ -16,7 +16,7 @@ npx sightline ./index.html        # أو http://localhost:3000
 ## مع Claude Code
 
 ```text
-/plugin marketplace add <اسم-حسابك>/sightline
+/plugin marketplace add khaled-cods/sightline
 /plugin install sightline@sightline
 ```
 

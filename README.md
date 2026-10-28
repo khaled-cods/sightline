@@ -25,7 +25,7 @@ Output (Markdown for the agent + `report.html` + annotated PNGs in `./sightline-
 ## Use it with Claude Code (or any agent)
 
 ```text
-/plugin marketplace add <your-github-user>/sightline
+/plugin marketplace add khaled-cods/sightline
 /plugin install sightline@sightline
 ```
 
