@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sightline — let your AI see the UI it builds</title>
+<meta name="description" content="Sightline renders your page in a real browser, finds visual and accessibility bugs (including Arabic/RTL), and gives your AI agent annotated screenshots and a fix list.">
+<style>
+:root{--bg:#0b1020;--card:#141b34;--line:#26305a;--tx:#e8ecf5;--mut:#a3adc9;--ac:#5ee0b0;--err:#ff5d7a;--warn:#ffa94d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+a{color:var(--ac)}
+.wrap{max-width:1000px;margin:auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+nav b{font-size:20px}
+nav a{color:var(--tx);text-decoration:none;border:1px solid var(--line);padding:8px 16px;border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
+.hero{padding:56px 0 40px;max-width:760px}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 18px;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:20px;margin:0 0 28px}
+.cmd{background:#050814;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font:16px ui-monospace,Menlo,Consolas,monospace;color:var(--ac);overflow-x:auto;white-space:nowrap}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:10px;font-weight:700;text-decoration:none;background:var(--ac);color:#04261a}
+.btn.o{background:none;color:var(--tx);border:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:30px;margin:0 0 8px}
+.lead{color:var(--mut);margin:0 0 26px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0;color:var(--mut);font-size:16px}
+.demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:start}
+.demo figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.demo img{width:100%;height:auto;border-radius:8px;display:block;background:#fff}
+figcaption{color:var(--mut);font-size:15px;margin-top:10px}
+.rep{background:#050814;border:1px solid var(--line);border-radius:12px;padding:20px;font:15px/1.7 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+.rep .e{color:var(--err)}.rep .w{color:var(--warn)}.rep .f{color:var(--ac)}
+table{width:100%;border-collapse:collapse;font-size:16px}
+td,th{text-align:start;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;width:28%}
+.rtl{background:linear-gradient(135deg,#142a3a,#141b34);border-color:#2b6f6a}
+footer{padding:36px 0 60px;color:var(--mut);border-top:1px solid var(--line);font-size:15px}
+</style></head><body>
+<div class="wrap">
+<nav><b>Sightline</b><a href="https://github.com/khaled-cods/sightline">GitHub</a></nav>
+
+<header class="hero">
+<h1>Your AI can write UI.<br>Now it can see it.</h1>
+<p class="sub">AI coding tools build web pages blind. Sightline opens the page in a real browser, spots what's broken, and tells the AI exactly how to fix it.</p>
+<div class="cmd">npx sightline ./index.html</div>
+<div class="btns"><a class="btn" href="https://github.com/khaled-cods/sightline">Get it on GitHub</a><a class="btn o" href="#how">How it works</a></div>
+</header>
+
+<section id="how">
+<h2>How it works</h2>
+<p class="lead">Four steps, about ten seconds.</p>
+<div class="steps">
+<div class="card"><h3>1. Open</h3><p>Loads your page in a real Chrome at phone and desktop sizes.</p></div>
+<div class="card"><h3>2. Inspect</h3><p>Measures contrast, image shapes, button sizes, labels, overflow and more.</p></div>
+<div class="card"><h3>3. Show</h3><p>Draws numbered boxes on screenshots so the problem is visible.</p></div>
+<div class="card"><h3>4. Fix</h3><p>Gives a score and a fix list. The AI edits the code and checks again.</p></div>
+</div>
+</section>
+
+<section>
+<h2>See it catch real bugs</h2>
+<p class="lead">A phone page with four planted problems. Sightline marks each one.</p>
+<div class="demo">
+<figure><img src="demo-mobile-before.png" alt="Phone screenshot of a test page with numbered boxes marking an oversized banner, a tiny button, a cropped image and cut-off text"><figcaption>Annotated screenshot: every box matches an item in the fix list.</figcaption></figure>
+<div class="rep" aria-label="Example report">
+<div><b>Score 78/100 (C)</b></div><br>
+<div><span class="e">1. overflow-x</span> Page scrolls sideways: 310px wider than the screen.</div><br>
+<div><span class="e">2. tap-target</span> Button is 20×20px. People can't tap it.</div><br>
+<div><span class="w">3. image-crop</span> Only 10% of the photo is visible.</div><br>
+<div><span class="w">4. text-clipped</span> Text is cut off with no ellipsis.</div><br>
+<div class="f">fix: each item comes with the exact CSS change to make.</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>What it checks</h2>
+<p class="lead">Objective defects, not taste.</p>
+<table>
+<tr><th>Layout</th><td>Sideways scrolling, cut-off text, stretched or over-cropped images</td></tr>
+<tr><th>Touch</th><td>Buttons and links too small to tap on a phone</td></tr>
+<tr><th>Accessibility</th><td>Low contrast, missing image descriptions, unlabeled fields and buttons, heading order, page language</td></tr>
+<tr><th>Type</th><td>Text too small, too many fonts</td></tr>
+</table>
+</section>
+
+<section>
+<div class="card rtl">
+<h2>Built for Arabic and right-to-left pages</h2>
+<p class="lead">Most tools ignore RTL. Sightline catches the mistakes that make Arabic sites look wrong.</p>
+<div class="demo">
+<figure><img src="demo-rtl-before.png" alt="Arabic test page with markers on spaced-out letters, a wrong-way arrow and a Latin font"><figcaption>Before: letter-spacing breaks Arabic joining, arrows point the wrong way, no RTL direction.</figcaption></figure>
+<figure><img src="demo-rtl-after.png" alt="The same Arabic page after the fixes, clean and correctly aligned"><figcaption>After: score 100/100.</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Use it with your AI</h2>
+<p class="lead">In Claude Code, add it once and it runs after every UI change:</p>
+<div class="cmd">/plugin marketplace add khaled-cods/sightline</div><br>
+<div class="cmd">/plugin install sightline@sightline</div>
+<p class="lead" style="margin-top:20px">Using another tool? Copy <a href="https://github.com/khaled-cods/sightline/blob/main/skills/sightline/SKILL.md">SKILL.md</a> into its rules file. Free and open source (MIT).</p>
+</section>
+
+<footer>Sightline is a heuristic checker. It finds objective defects, not design taste, and skips contrast over images and gradients instead of guessing.</footer>
+</div></body></html>
