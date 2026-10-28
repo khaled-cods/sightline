@@ -36,35 +36,42 @@ table{width:100%;border-collapse:collapse;font-size:16px}
 td,th{text-align:start;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--mut);font-weight:600;width:28%}
 .rtl{background:linear-gradient(135deg,#142a3a,#141b34);border-color:#2b6f6a}
+.navr{display:flex;gap:10px;align-items:center}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{min-height:44px;min-width:44px;padding:0 14px;background:none;color:var(--mut);border:0;font:inherit;font-size:15px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ac);color:#04261a;font-weight:700}
+html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3{letter-spacing:0}
+.cmd{direction:ltr;text-align:start}
+.rep{direction:ltr}
 footer{padding:36px 0 60px;color:var(--mut);border-top:1px solid var(--line);font-size:15px}
 </style></head><body>
 <div class="wrap">
-<nav><b>Sightline</b><a href="https://github.com/khaled-cods/sightline">GitHub</a></nav>
+<nav><b>Sightline</b><div class="navr"><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="ar" aria-pressed="false" lang="ar">العربية</button></div><a href="https://github.com/khaled-cods/sightline">GitHub</a></div></nav>
 
 <header class="hero">
-<h1>Your AI can write UI.<br>Now it can see it.</h1>
-<p class="sub">AI coding tools build web pages blind. Sightline opens the page in a real browser, spots what's broken, and tells the AI exactly how to fix it.</p>
-<div class="cmd">npx sightline ./index.html</div>
-<div class="btns"><a class="btn" href="https://github.com/khaled-cods/sightline">Get it on GitHub</a><a class="btn o" href="#how">How it works</a></div>
+<h1 data-ar="الذكاء الاصطناعي بيكتب الواجهات.<br>دلوقتي بقى يشوفها.">Your AI can write UI.<br>Now it can see it.</h1>
+<p class="sub" data-ar="أدوات الذكاء الاصطناعي بتبني صفحات الويب وهي مش شايفاها. Sightline بيفتح الصفحة في متصفح حقيقي، يلاقي العيوب، ويقول للـ AI يصلحها إزاي بالظبط.">AI coding tools build web pages blind. Sightline opens the page in a real browser, spots what's broken, and tells the AI exactly how to fix it.</p>
+<div class="cmd">npx github:khaled-cods/sightline ./index.html</div>
+<div class="btns"><a class="btn" href="https://github.com/khaled-cods/sightline" data-ar="حمّله من GitHub">Get it on GitHub</a><a class="btn o" href="#how" data-ar="إزاي بيشتغل">How it works</a></div>
 </header>
 
 <section id="how">
-<h2>How it works</h2>
-<p class="lead">Four steps, about ten seconds.</p>
+<h2 data-ar="إزاي بيشتغل">How it works</h2>
+<p class="lead" data-ar="أربع خطوات، حوالي عشر ثواني.">Four steps, about ten seconds.</p>
 <div class="steps">
-<div class="card"><h3>1. Open</h3><p>Loads your page in a real Chrome at phone and desktop sizes.</p></div>
-<div class="card"><h3>2. Inspect</h3><p>Measures contrast, image shapes, button sizes, labels, overflow and more.</p></div>
-<div class="card"><h3>3. Show</h3><p>Draws numbered boxes on screenshots so the problem is visible.</p></div>
-<div class="card"><h3>4. Fix</h3><p>Gives a score and a fix list. The AI edits the code and checks again.</p></div>
+<div class="card"><h3 data-ar="١. يفتح">1. Open</h3><p data-ar="يحمّل صفحتك في Chrome حقيقي بمقاس الموبايل والكمبيوتر.">Loads your page in a real Chrome at phone and desktop sizes.</p></div>
+<div class="card"><h3 data-ar="٢. يفحص">2. Inspect</h3><p data-ar="يقيس التباين وأشكال الصور وأحجام الأزرار والتسميات والتمرير الجانبي وغيرها.">Measures contrast, image shapes, button sizes, labels, overflow and more.</p></div>
+<div class="card"><h3 data-ar="٣. يوضّح">3. Show</h3><p data-ar="يرسم مربعات مرقمة على الصور عشان العيب يبان.">Draws numbered boxes on screenshots so the problem is visible.</p></div>
+<div class="card"><h3 data-ar="٤. يصلّح">4. Fix</h3><p data-ar="يديك درجة وقايمة إصلاحات. الـ AI يعدّل الكود ويفحص تاني.">Gives a score and a fix list. The AI edits the code and checks again.</p></div>
 </div>
 </section>
 
 <section>
-<h2>See it catch real bugs</h2>
-<p class="lead">A phone page with four planted problems. Sightline marks each one.</p>
+<h2 data-ar="شوفه وهو بيلقط عيوب حقيقية">See it catch real bugs</h2>
+<p class="lead" data-ar="صفحة موبايل فيها أربع مشاكل متعمدة. Sightline بيعلّم على كل واحدة.">A phone page with four planted problems. Sightline marks each one.</p>
 <div class="demo">
-<figure><img src="demo-mobile-before.png" alt="Phone screenshot of a test page with numbered boxes marking an oversized banner, a tiny button, a cropped image and cut-off text"><figcaption>Annotated screenshot: every box matches an item in the fix list.</figcaption></figure>
-<div class="rep" aria-label="Example report">
+<figure><img src="demo-mobile-before.png" alt="Phone screenshot of a test page with numbered boxes marking an oversized banner, a tiny button, a cropped image and cut-off text" data-ar-alt="صورة موبايل لصفحة اختبار عليها مربعات مرقمة على بانر عريض وزرار صغير وصورة مقصوصة ونص مقطوع"><figcaption data-ar="صورة عليها علامات: كل مربع يقابل بند في قايمة الإصلاحات.">Annotated screenshot: every box matches an item in the fix list.</figcaption></figure>
+<div class="rep" aria-label="Example report" data-ar-label="مثال على التقرير">
 <div><b>Score 78/100 (C)</b></div><br>
 <div><span class="e">1. overflow-x</span> Page scrolls sideways: 310px wider than the screen.</div><br>
 <div><span class="e">2. tap-target</span> Button is 20×20px. People can't tap it.</div><br>
@@ -76,34 +83,58 @@ footer{padding:36px 0 60px;color:var(--mut);border-top:1px solid var(--line);fon
 </section>
 
 <section>
-<h2>What it checks</h2>
-<p class="lead">Objective defects, not taste.</p>
+<h2 data-ar="بيفحص إيه">What it checks</h2>
+<p class="lead" data-ar="عيوب موضوعية، مش ذوق.">Objective defects, not taste.</p>
 <table>
-<tr><th>Layout</th><td>Sideways scrolling, cut-off text, stretched or over-cropped images</td></tr>
-<tr><th>Touch</th><td>Buttons and links too small to tap on a phone</td></tr>
-<tr><th>Accessibility</th><td>Low contrast, missing image descriptions, unlabeled fields and buttons, heading order, page language</td></tr>
-<tr><th>Type</th><td>Text too small, too many fonts</td></tr>
+<tr><th data-ar="التخطيط">Layout</th><td data-ar="تمرير جانبي، نص مقطوع، صور متمطوطة أو مقصوصة أوي">Sideways scrolling, cut-off text, stretched or over-cropped images</td></tr>
+<tr><th data-ar="اللمس">Touch</th><td data-ar="أزرار وروابط أصغر من إنها تتضغط على الموبايل">Buttons and links too small to tap on a phone</td></tr>
+<tr><th data-ar="سهولة الوصول">Accessibility</th><td data-ar="تباين ضعيف، صور من غير وصف، حقول وأزرار من غير اسم، ترتيب العناوين، لغة الصفحة">Low contrast, missing image descriptions, unlabeled fields and buttons, heading order, page language</td></tr>
+<tr><th data-ar="الخطوط">Type</th><td data-ar="نص صغير أوي، خطوط كتير">Text too small, too many fonts</td></tr>
 </table>
 </section>
 
 <section>
 <div class="card rtl">
-<h2>Built for Arabic and right-to-left pages</h2>
-<p class="lead">Most tools ignore RTL. Sightline catches the mistakes that make Arabic sites look wrong.</p>
+<h2 data-ar="مبني للعربي والصفحات من اليمين لليسار">Built for Arabic and right-to-left pages</h2>
+<p class="lead" data-ar="أغلب الأدوات بتتجاهل RTL. Sightline بيلقط الأخطاء اللي بتخلي المواقع العربي شكلها غلط.">Most tools ignore RTL. Sightline catches the mistakes that make Arabic sites look wrong.</p>
 <div class="demo">
-<figure><img src="demo-rtl-before.png" alt="Arabic test page with markers on spaced-out letters, a wrong-way arrow and a Latin font"><figcaption>Before: letter-spacing breaks Arabic joining, arrows point the wrong way, no RTL direction.</figcaption></figure>
-<figure><img src="demo-rtl-after.png" alt="The same Arabic page after the fixes, clean and correctly aligned"><figcaption>After: score 100/100.</figcaption></figure>
+<figure><img src="demo-rtl-before.png" alt="Arabic test page with markers on spaced-out letters, a wrong-way arrow and a Latin font" data-ar-alt="صفحة عربي للاختبار عليها علامات على حروف متباعدة وسهم في الاتجاه الغلط وخط لاتيني"><figcaption data-ar="قبل: تباعد الحروف بيكسر وصل الحروف العربي، والأسهم في الاتجاه الغلط، ومفيش اتجاه RTL.">Before: letter-spacing breaks Arabic joining, arrows point the wrong way, no RTL direction.</figcaption></figure>
+<figure><img src="demo-rtl-after.png" alt="The same Arabic page after the fixes, clean and correctly aligned" data-ar-alt="نفس الصفحة العربي بعد الإصلاح، نضيفة ومتظبطة الاتجاه"><figcaption data-ar="بعد: الدرجة 100/100.">After: score 100/100.</figcaption></figure>
 </div>
 </div>
 </section>
 
 <section>
-<h2>Use it with your AI</h2>
-<p class="lead">In Claude Code, add it once and it runs after every UI change:</p>
+<h2 data-ar="استخدمه مع الـ AI بتاعك">Use it with your AI</h2>
+<p class="lead" data-ar="في Claude Code، ضيفه مرة واحدة وهيشتغل بعد كل تعديل في الواجهة:">In Claude Code, add it once and it runs after every UI change:</p>
 <div class="cmd">/plugin marketplace add khaled-cods/sightline</div><br>
 <div class="cmd">/plugin install sightline@sightline</div>
-<p class="lead" style="margin-top:20px">Using another tool? Copy <a href="https://github.com/khaled-cods/sightline/blob/main/skills/sightline/SKILL.md">SKILL.md</a> into its rules file. Free and open source (MIT).</p>
+<p class="lead" style="margin-top:20px" data-ar="تستخدم أداة تانية؟ انسخ <a href=&quot;https://github.com/khaled-cods/sightline/blob/main/skills/sightline/SKILL.md&quot;>SKILL.md</a> في ملف التعليمات بتاعها. مجاني ومفتوح المصدر (MIT).">Using another tool? Copy <a href="https://github.com/khaled-cods/sightline/blob/main/skills/sightline/SKILL.md">SKILL.md</a> into its rules file. Free and open source (MIT).</p>
 </section>
 
-<footer>Sightline is a heuristic checker. It finds objective defects, not design taste, and skips contrast over images and gradients instead of guessing.</footer>
-</div></body></html>
+<footer data-ar="Sightline أداة فحص بقواعد ثابتة. بتلاقي عيوب موضوعية مش ذوق التصميم، وبتتخطى التباين فوق الصور والتدرجات بدل ما تخمّن.">Sightline is a heuristic checker. It finds objective defects, not design taste, and skips contrast over images and gradients instead of guessing.</footer>
+</div>
+<script>
+(function(){
+var K="sl-lang",d=document,h=d.documentElement;
+function els(){return d.querySelectorAll("[data-ar]")}
+function save(){els().forEach(function(e){if(e.dataset.en==null)e.dataset.en=e.innerHTML});d.querySelectorAll("[data-ar-alt]").forEach(function(e){if(e.dataset.enAlt==null)e.dataset.enAlt=e.alt});d.querySelectorAll("[data-ar-label]").forEach(function(e){if(e.dataset.enLabel==null)e.dataset.enLabel=e.getAttribute("aria-label")})}
+function set(l){
+ var ar=l==="ar";
+ h.lang=l;h.dir=ar?"rtl":"ltr";
+ els().forEach(function(e){e.innerHTML=ar?e.dataset.ar:e.dataset.en});
+ d.querySelectorAll("[data-ar-alt]").forEach(function(e){e.alt=ar?e.dataset.arAlt:e.dataset.enAlt});
+ d.querySelectorAll("[data-ar-label]").forEach(function(e){e.setAttribute("aria-label",ar?e.dataset.arLabel:e.dataset.enLabel)});
+ d.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.l===l))});
+ d.title=ar?"Sightline — خلّي الـ AI يشوف الواجهة اللي بناها":"Sightline — let your AI see the UI it builds";
+ try{localStorage.setItem(K,l)}catch(e){}
+}
+save();
+d.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){set(b.dataset.l)})});
+var q=(location.search.match(/[?&]lang=(en|ar)/)||[])[1],s=null;
+try{s=localStorage.getItem(K)}catch(e){}
+var l=q||s||((navigator.language||"").slice(0,2)==="ar"?"ar":"en");
+if(l==="ar")set("ar");
+})();
+</script>
+</body></html>
