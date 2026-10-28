@@ -4,6 +4,7 @@ const path = require('path');
 const { pathToFileURL } = require('url');
 const inpage = require('./inpage');
 const { score } = require('./score');
+const { arFor } = require('./i18n');
 
 const VIEWPORTS = {
   mobile: { width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
@@ -89,7 +90,7 @@ async function audit(target, opts = {}) {
   }
   const order = { error: 0, warn: 1, info: 2 };
   const issues = [...merged.values()].sort((a, b) => order[a.severity] - order[b.severity]);
-  issues.forEach((i, n) => (i.id = n + 1));
+  issues.forEach((i, n) => { i.id = n + 1; i.ar = arFor(i.rule); });
   const sc = score(issues);
   const counts = { error: 0, warn: 0, info: 0 };
   issues.forEach((i) => counts[i.severity]++);
